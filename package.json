@@ -1,0 +1,43 @@
+{
+  "name": "n8n-nodes-webex-bot",
+  "version": "0.1.0",
+  "description": "n8n community node for the Cisco Webex Bot API — messaging, rooms, and people.",
+  "keywords": [
+    "n8n-community-node-package",
+    "webex",
+    "cisco",
+    "webex-bot"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "danny"
+  },
+  "scripts": {
+    "build": "tsc && npm run copy-icons",
+    "copy-icons": "copyfiles -u 1 \"nodes/**/*.svg\" dist/nodes",
+    "dev": "tsc --watch",
+    "lint": "eslint nodes credentials --ext .ts",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/WebexBotApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/WebexBot/WebexBot.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.16",
+    "copyfiles": "^2.4.1",
+    "n8n-workflow": "*",
+    "typescript": "^5.1.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
